@@ -29,17 +29,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($pengaduan as $i=>$p)
+                            @foreach($pengaduan as $i => $p)
                             <tr>
                                 <td>{{ $i+1 }}</td>
                                 <td>{{ $p->tgl_pengaduan }}</td>
                                 <td>{{ $p->nik }}</td>
-                                <td>{{ $p->isi_lapaoran }}</td>
+                                <td>{{ $p->isi_laporan }}</td>
                                 <td>{{ $p->foto }}</td>
                                 <td>{{ $p->status }}</td>
                                 <td>
-                                    <a href="/pengaduan/edit/{{ $p->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/pengaduan/hapus/{{ $p->id }}" class="btn btn-danger">Hapus</a>
+                                    <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn btn-warning">Edit</a>
+                                    <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

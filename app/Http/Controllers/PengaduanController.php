@@ -42,10 +42,9 @@ class PengaduanController extends Controller
             'nik' => $request->nik,
             'isi_laporan' => $request->isi_laporan,
             'foto' => $request->foto,
-            'status' => $request->status,
-
+            'status' => 'proses',
     	]);
- 
+
     	return redirect('/pengaduan');
     }
 
@@ -68,7 +67,7 @@ class PengaduanController extends Controller
      */
     public function edit($id)
     {
-         $pengaduan = Pengaduan::where('pengaduan',$id)->first();
+        $pengaduan = Pengaduan::where('id_pengaduan',$id)->first();
         return view('pengaduan.edit',compact('pengaduan'));
     }
 
@@ -82,10 +81,10 @@ class PengaduanController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request,[
-        'tgl_pengaduan' => 'required',
-         'nik' => 'required',
-          'isi_laporan' => 'required',
-           'foto' => 'required',
+            'tgl_pengaduan' => 'required',
+            'nik' => 'required',
+            'isi_laporan' => 'required',
+            'foto' => 'required',
             'status' => 'required',
         ]);
 
@@ -93,14 +92,12 @@ class PengaduanController extends Controller
 
         // $code = 'KLS'.str_replace("-", "", $check);
     
-        Kelas::where('pengaduan',$id)->update([
-            // 'kode_kelas' => $code,
-    		'tgl_pengaduan' => $request->nm_kelas,
+        Pengaduan::where('id_pengaduan',$id)->update([
+    		'tgl_pengaduan' => $request->tgl_pengaduan,
             'nik' => $request->nik,
             'isi_laporan' => $request->isi_laporan,
             'foto' => $request->foto,
             'status' => $request->status,
-
         ]);
 
         return redirect('/pengaduan');
@@ -114,7 +111,8 @@ class PengaduanController extends Controller
      */
     public function destroy($id)
     {
-         Kelas::where('pengaduan',$id)->delete();
+        Pengaduan::where('id_pengaduan',$id)->delete();
+
         return redirect('/pengaduan');
     }
 }

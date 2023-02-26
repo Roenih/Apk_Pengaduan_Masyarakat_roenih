@@ -20,4 +20,8 @@ Route::get('/', function () {
 Route::get('/pengaduan', 'PengaduanController@index')->name('pengaduan');
 Route::get('/pengaduan/create', 'PengaduanController@create');
 Route::post('/pengaduan/store', 'PengaduanController@store');
+Route::get('/pengaduan/edit/{id}', 'PengaduanController@edit');
+Route::put('/pengaduan/update/{id}', 'PengaduanController@update');
+Route::get('/pengaduan/delete/{id}', 'PengaduanController@destroy');
+
 

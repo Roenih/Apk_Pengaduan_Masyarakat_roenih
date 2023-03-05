@@ -1,52 +1,53 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-        <title></title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="card mt-5">
-                <div class="card-header text-center">
-                 <a href="https://www.malasngoding.com/category/laravel" target="_blank"></a>
+@extends('templates.master')
+@section('header', 'Pengaduan')
+@section('content')
+<div class="row">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h6>Pengaduan Table</h6>
                 </div>
-                <div class="card-body">
-                    <a href="/pengaduan/create" class="btn btn-primary">Input Pengaduan Baru</a>
-                    <br/>
-                    <br/>
-                    <table class="table table-bordered table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Tanggal Pengaduan</th>
-                                <th>Nik</th>
-                                <th>Isi laporan</th>
-                                <th>Foto</th>
-                                <th>Status</th>
-                                <th>OPSI</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($pengaduan as $i => $p)
-                            <tr>
-                                <td>{{ $i+1 }}</td>
-                                <td>{{ $p->tgl_pengaduan }}</td>
-                                <td>{{ $p->nik }}</td>
-                                <td>{{ $p->isi_laporan }}</td>
-                                <td>{{ $p->foto }}</td>
-                                <td>{{ $p->status }}</td>
-                                <td>
-                                    <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn btn-warning">Edit</a>
-                                    <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn btn-danger">Hapus</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                <div class="col-sm-4">
+                    <a href="/pengaduan/create" class="btn btn-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Tanggal Pengaduan</th>
+                  <th>NIK</th>
+                  <th>Isi laporan</th>
+                  <th>Foto</th>
+                  <th>Status</th>
+                  <th class="text-secondary opacity-7"></th>
+                </tr>
+              </thead>
+              <tbody style="text-aling: center;">
+                @foreach($pengaduan as $i => $p)
+                    <tr>
+                        <td class="text-center">{{ $i+1 }}</td>
+                        <td class="text-center">{{ $p->tgl_pengaduan }}</td>
+                        <td class="text-center">{{ $p->nik }}</td>
+                        <td class="text-center">{{ $p->isi_laporan }}</td>
+                        <td class="text-center">{{ $p->foto }}</td>
+                        <td class="text-center">{{ $p->status }}</td>
+                        <td>
+                            <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn btn-warning">Edit</a>
+                            <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+@endsection

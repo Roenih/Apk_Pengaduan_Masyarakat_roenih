@@ -11,4 +11,5 @@ class Pengaduan extends Model
     protected $primarykey = 'id_pengaduan';
 
     // coba doang
+    // coba lagi deh
 }

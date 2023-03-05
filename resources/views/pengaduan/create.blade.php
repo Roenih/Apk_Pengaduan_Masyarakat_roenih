@@ -1,4 +1,64 @@
-<!doctype html>
+@extends('templates.master')
+@section('header', 'Create Pengaduan')
+@section('content')
+<div class="row">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h6>Create</h6>
+                </div>
+                <div class="col-sm-4">
+                    <a href="/pengaduan" class="btn btn-success btn-sm float-end" style="margin-right: 25px">Back</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body px-4 py-4">
+            <form action="/pengaduan/store" method="POST">
+                @csrf
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="example-date-input" class="form-control-label">Tanggal Pengaduan</label>
+                        <input class="form-control" name="tgl_pengaduan" type="date" id="example-date-input">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">NIK</label>
+                        <input type="number" name="nik" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">Foto</label>
+                        <input type="file" name="foto" class="form-control" id="exampleFormControlInput1">    
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Isi Laporan</label>
+                        <textarea class="form-control" name="isi_laporan" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+@endsection
+{{-- <!doctype html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -62,4 +122,4 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}

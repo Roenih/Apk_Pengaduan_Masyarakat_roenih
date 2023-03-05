@@ -80,18 +80,6 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate($request,[
-            'tgl_pengaduan' => 'required',
-            'nik' => 'required',
-            'isi_laporan' => 'required',
-            'foto' => 'required',
-            'status' => 'required',
-        ]);
-
-        // $check = $request->nm_kelas;
-
-        // $code = 'KLS'.str_replace("-", "", $check);
-    
         Pengaduan::where('id_pengaduan',$id)->update([
     		'tgl_pengaduan' => $request->tgl_pengaduan,
             'nik' => $request->nik,

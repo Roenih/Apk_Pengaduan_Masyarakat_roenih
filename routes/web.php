@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/pengaduan', 'PengaduanController@index')->name('pengaduan');
 Route::get('/pengaduan/create', 'PengaduanController@create');
 Route::post('/pengaduan/store', 'PengaduanController@store');
@@ -25,3 +26,4 @@ Route::put('/pengaduan/update/{id}', 'PengaduanController@update');
 Route::get('/pengaduan/delete/{id}', 'PengaduanController@destroy');
 
 
+Route::get('/tanggapan', 'TanggapanController@index')->name('tanggapan');

@@ -36,7 +36,14 @@ class TanggapanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tanggapan::create([
+    		'tgl_tanggapan' => $request->tgl_tanggapan,
+            'tanggapan' => $request->tanggapan,
+            'id_user' => $request->id_user,
+            
+    	]);
+
+    	return redirect('/tanggapan');
     }
 
     /**

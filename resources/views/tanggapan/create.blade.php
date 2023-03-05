@@ -1,5 +1,5 @@
 @extends('templates.master')
-@section('header', 'Create Pengaduan')
+@section('header', 'Create Tanggapan')
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -10,35 +10,35 @@
                     <h6>Create</h6>
                 </div>
                 <div class="col-sm-4">
-                    <a href="/pengaduan" class="btn btn-success btn-sm float-end" style="margin-right: 25px">Kembali</a>
+                    <a href="/tanggapan" class="btn btn-success btn-sm float-end" style="margin-right: 25px">Kembali</a>
                 </div>
             </div>
         </div>
         <div class="card-body px-4 py-4">
-            <form action="/pengaduan/store" method="POST">
+            <form action="/tanggapan/store" method="POST">
                 @csrf
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                        <label for="example-date-input" class="form-control-label">Tanggal Pengaduan</label>
-                        <input class="form-control" name="tgl_pengaduan" type="date" id="example-date-input">
+                        <label for="example-date-input" class="form-control-label">Tanggal Tanggapan</label>
+                        <input class="form-control" name="tgl_tanggapan" type="date" id="example-date-input">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">NIK</label>
-                        <input type="number" name="nik" class="form-control" id="exampleFormControlInput1">
+                        <label for="example-text-input" class="form-control-label">Tanggapan</label>
+                        <input type="string" name="tanggapan" class="form-control" id="exampleFormControlInput1">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">Foto</label>
-                        <input type="file" name="foto" class="form-control" id="exampleFormControlInput1">    
+                        <label for="example-text-input" class="form-control-label">ID User</label>
+                        <input type="integer" name="id_user" class="form-control" id="exampleFormControlInput1">    
                     </div>
                   </div>
-                </div>
+                {{-- </div>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
@@ -46,7 +46,7 @@
                         <textarea class="form-control" name="isi_laporan" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                   </div>
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Simpan</button>

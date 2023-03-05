@@ -27,3 +27,4 @@ Route::get('/pengaduan/delete/{id}', 'PengaduanController@destroy');
 
 
 Route::get('/tanggapan', 'TanggapanController@index')->name('tanggapan');
+Route::get('/tanggapan/create', 'TanggapanController@create');

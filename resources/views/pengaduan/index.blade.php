@@ -10,7 +10,7 @@
                     <h6>Pengaduan Table</h6>
                 </div>
                 <div class="col-sm-4">
-                    <a href="/pengaduan/create" class="btn btn-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
+                    <a href="/pengaduan/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
                 </div>
             </div>
         </div>
@@ -38,8 +38,8 @@
                         <td class="text-center">{{ $p->foto }}</td>
                         <td class="text-center">{{ $p->status }}</td>
                         <td>
-                            <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn btn-warning">Edit</a>
-                            <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn btn-danger">Hapus</a>
+                            <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn bg-gradient-primary">Edit</a>
+                            <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn bg-gradient-warning ">Hapus</a>
                         </td>
                     </tr>
                 @endforeach

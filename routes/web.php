@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
+Route::get('/login', function () {
+    return view('pengguna.login');
+});
+
+Route::get('/postlogin', 'LoginController@postlogin')->name('postlogin');
+    
 
 Route::get('/pengaduan', 'PengaduanController@index')->name('pengaduan');
 Route::get('/pengaduan/create', 'PengaduanController@create');
@@ -28,3 +34,10 @@ Route::get('/pengaduan/delete/{id}', 'PengaduanController@destroy');
 
 Route::get('/tanggapan', 'TanggapanController@index')->name('tanggapan');
 Route::get('/tanggapan/create', 'TanggapanController@create');
+Route::post('/tanggapan/store', 'TanggapanController@store');
+Route::get('/tanggapan/edit/{id}', 'TanggapanController@edit');
+Route::put('/tanggapan/update/{id}', 'TanggapanController@update');
+Route::get('/tanggapan/delete/{id}', 'TanggapanController@destroy');
+
+// user
+

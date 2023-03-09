@@ -10,7 +10,7 @@
                     <h6>Tanggapan Table</h6>
                 </div>
                 <div class="col-sm-4">
-                    <a href="/tanggapan/create" class="btn btn-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
+                    <a href="/tanggapan/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
                 </div>
             </div>
         </div>
@@ -34,8 +34,8 @@
                         <td class="text-center">{{ $p->tanggapan }}</td>
                         <td class="text-center">{{ $p->id_user }}</td>
                         <td>
-                            <a href="/tanggapan/edit/{{ $p->id_tanggapan }}" class="btn btn-warning">Edit</a>
-                            <a href="/tanggapan/delete/{{ $p->id_tanggapan }}" class="btn btn-danger">Hapus</a>
+                            <a href="/tanggapan/edit/{{ $p->id_tanggapan }}" class="btn bg-gradient-primary">Edit</a>
+                            <a href="/tanggapan/delete/{{ $p->id_tanggapan }}" class="btn bg-gradient-warning">Hapus</a>
                         </td>
                     </tr>
                 @endforeach

@@ -10,7 +10,7 @@
                     <h6>Create</h6>
                 </div>
                 <div class="col-sm-4">
-                    <a href="/tanggapan" class="btn btn-success btn-sm float-end" style="margin-right: 25px">Kembali</a>
+                    <a href="/tanggapan" class="btn bg-gradient-warning btn-sm float-end" style="margin-right: 25px">Kembali</a>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                 </div> --}}
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn bg-gradient-info">Simpan</button>
                     </div>
                 </div>
             </form>

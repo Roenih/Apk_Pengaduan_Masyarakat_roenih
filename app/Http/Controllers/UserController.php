@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\District;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\Village;
+use DB;
 
 class UserController extends Controller
 {
@@ -14,7 +19,17 @@ class UserController extends Controller
      */
     public function index()
     {
-     
+        $user = DB::table('users')
+                    ->join('indoregion_provinces', 'users.province_id', '=', 'indoregion_provinces.id')
+                    ->join('indoregion_regencies', 'users.regency_id', '=', 'indoregion_regencies.id')
+                    ->join('indoregion_districts', 'users.district_id', '=', 'indoregion_districts.id')
+                    ->join('indoregion_villages', 'users.village_id', '=', 'indoregion_villages.id')
+                    ->select('users.*', 'indoregion_provinces.name as province_id', 'indoregion_regencies.name as regency_id', 'indoregion_districts.name as district_id', 'indoregion_villages.name as village_id')
+                    ->get();
+                    
+        // dd($user);
+
+    	return view('user.index',compact('user'));
     }
 
     /**
@@ -24,7 +39,7 @@ class UserController extends Controller
      */
     public function create()
     {
-       
+        return view('user.create');
     }
 
     /**
@@ -35,7 +50,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = [
+            'nama' => $request->name, 
+            'email' => $request->email, 
+            'password' => $request->password, 
+            'nik' => $request->nik, 
+            'telp' => $request->telp, 
+            'jenkel' => $request->jenkel, 
+            'level' => $request->level, 
+            'alamat' => $request->alamat, 
+            'rt' => $request->rt, 
+            'rw' => $request->rw, 
+            'kode_pos' => $request->kode_pos, 
+            'province_id' => $request->province_id, 
+            'regency_id' => $request->regency_id, 
+            'district_id' => $request->district_id,
+            'village_id' => $request->village_id,
+        ];
+
+        User::create($user);
+
+        return redirect('/user');
     }
 
     /**
@@ -57,7 +92,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $district =  District::find($user->district_id);
+        $province =  Province::find($user->province_id);
+        $regency =  Regency::find($user->regency_id);
+        $village =  Village::find($user->village_id);
+
+        return view('user.edit',compact('user','district','province','regency','village'));
     }
 
     /**
@@ -69,7 +110,27 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $updateData = [
+            'nama' => $request->nama, 
+            'email' => $request->email, 
+            'password' => $request->password, 
+            'nik' => $request->nik, 
+            'telp' => $request->telp, 
+            'jenkel' => $request->jenkel, 
+            'level' => $request->level, 
+            'alamat' => $request->alamat, 
+            'rt' => $request->rt, 
+            'rw' => $request->rw, 
+            'kode_pos' => $request->kode_pos, 
+            'province_id' => $request->province_id, 
+            'regency_id' => $request->regency_id, 
+            'district_id' => $request->district_id,
+            'village_id' => $request->village_id,
+        ];
+        $user->update($updateData);
+
+        return redirect('/user');
     }
 
     /**
@@ -80,6 +141,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id',$id)->delete();
+
+        return redirect('/user');
     }
 }

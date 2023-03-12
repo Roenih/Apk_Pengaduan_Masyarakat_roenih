@@ -19,6 +19,8 @@ class User extends Authenticatable
         'nama', 'email', 'password', 'nik', 'telp', 'jenkel', 'level', 'alamat', 'rt', 'rw', 'kode_pos', 'province_id', 'regency_id', 'district_id', 'village_id'
     ];
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -17,12 +17,16 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/dashboard', function () {
+    return view('welcome');
+});
+
 Route::get('/login', function () {
     return view('pengguna.login');
 });
 
 Route::get('/postlogin', 'LoginController@postlogin')->name('postlogin');
-    
+   
 
 Route::get('/pengaduan', 'PengaduanController@index')->name('pengaduan');
 Route::get('/pengaduan/create', 'PengaduanController@create');
@@ -40,4 +44,10 @@ Route::put('/tanggapan/update/{id}', 'TanggapanController@update');
 Route::get('/tanggapan/delete/{id}', 'TanggapanController@destroy');
 
 // user
+Route::get('/user', 'UserController@index')->name('user');
+Route::get('/user/create', 'UserController@create');
+Route::post('/user/store', 'UserController@store');
+Route::get('/user/edit/{id}', 'UserController@edit');
+Route::put('/user/update/{id}', 'UserController@update');
+Route::get('/user/delete/{id}', 'UserController@destroy');
 

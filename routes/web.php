@@ -25,8 +25,13 @@ Route::get('/login', function () {
     return view('pengguna.login');
 });
 
-Route::get('/postlogin', 'LoginController@postlogin')->name('postlogin');
-   
+Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
+Route::get('/registrasi', 'LoginController@registrasi')->name('registrasi');
+Route::post('/simpanregistrasi', 'LoginController@simpanregistrasi')->name('simpanregistrasi');
+
+Route::post('/getkabupaten', 'LoginController@getkabupaten')->name('getkabupaten');
+Route::post('/getkecamatan', 'LoginController@getkecamatan')->name('getkecamatan');
+Route::post('/getdesa', 'LoginController@getdesa')->name('getdesa');
 
 Route::get('/pengaduan', 'PengaduanController@index')->name('pengaduan');
 Route::get('/pengaduan/create', 'PengaduanController@create');

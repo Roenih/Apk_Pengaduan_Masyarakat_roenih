@@ -72,8 +72,8 @@
                                                 </li>
                                                 <li><a href="contact.html">Contact</a></li>
                                                 <!-- Button -->
-                                                <li class="button-header margin-left "><a href="#" class="btn">Join</a></li>
-                                                <li class="button-header"><a href="login.html" class="btn btn3">Log in</a></li>
+                                                <li class="button-header margin-left "><a href="/registrasi" class="btn">Registrasi</a></li>
+                                                <li class="button-header"><a href="/login" class="btn btn3">masuk</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -479,20 +479,20 @@
                 </div>
                 <div class="left-content3">
                     <!-- section tittle -->
-                    <div class="section-tittle section-tittle2 mb-20">
+                    <!-- <div class="section-tittle section-tittle2 mb-20">
                         <div class="front-text">
                             <h2 class="">Learner outcomes on courses you will take</h2>
                         </div>
-                    </div>
-                    <div class="single-features">
+                    </div> -->
+                    <!-- <div class="single-features">
                         <div class="features-icon">
                             <img src="assets/img/icon/right-icon.svg" alt="">
                         </div>
                         <div class="features-caption">
                             <p>Techniques to engage effectively with vulnerable children and young people.</p>
                         </div>
-                    </div>
-                    <div class="single-features">
+                    </div> -->
+                    <!-- <div class="single-features">
                         <div class="features-icon">
                             <img src="assets/img/icon/right-icon.svg" alt="">
                         </div>
@@ -500,8 +500,8 @@
                             <p>Join millions of people from around the world
                             learning together.</p>
                         </div>
-                    </div>
-                    <div class="single-features">
+                    </div> -->
+                    <!-- <div class="single-features">
                         <div class="features-icon">
                             <img src="assets/img/icon/right-icon.svg" alt="">
                         </div>
@@ -509,7 +509,7 @@
                             <p>Join millions of people from around the world learning together.
                             Online learning is as easy and natural.</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>

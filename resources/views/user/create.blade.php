@@ -113,7 +113,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Kecamatan</label>
+                          <label for="example-text-input" class="form-control-label">Kelurahan</label>
                           <select class="form-control" id="selectKelurahan" name="village_id">
                             <option>Pilih Kelurahan</option>
                           </select>

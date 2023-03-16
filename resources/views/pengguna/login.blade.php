@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +6,8 @@
 <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="{{('assets/img/favicon.png')}}">
 <title>
-    Soft UI Dashboard by Creative Tim
-  </title>
+Aplikasi Pengaduan Masyarakat
+</title>
 
 
 <link rel="canonical" href="https://www.creative-tim.com/product/soft-ui-dashboard" />
@@ -153,11 +151,11 @@ Sign In
 </li>
 </ul>
 <li class="nav-item d-flex align-items-center">
-<a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-dashboard">Online Builder</a>
+<!-- <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-dashboard">Online Builder</a>
 </li>
 <ul class="navbar-nav d-lg-block d-none">
 <li class="nav-item">
-<a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Free download</a>
+<a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Free download</a> -->
 </li>
 </ul>
 </div>
@@ -175,30 +173,31 @@ Sign In
 <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
 <div class="card card-plain mt-8">
 <div class="card-header pb-0 text-left bg-transparent">
-<h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
-<p class="mb-0">Enter your email and password to sign in</p>
+<h3 class="font-weight-bolder text-info text-gradient">Selamat Datang Masyarakatku</h3>
+<p class="mb-0">Masukkan email dan kata sandi Anda untuk masuk</p>
 </div>
 <div class="card-body">
-<form role="form">
-<label>Email</label>
-<div class="mb-3">
-<input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
-</div>
-<label>Password</label>
-<div class="mb-3">
-<input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
-</div>
-<div class="form-check form-switch">
-<input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-<label class="form-check-label" for="rememberMe">Remember me</label>
-</div>
-<div class="text-center">
-<button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
-</div>
+<form role="form" action="{{route('postlogin')}}" method="post">
+@csrf
+  <label>Email</label>
+  <div class="mb-3">
+  <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+  </div>
+  <label>Password</label>
+  <div class="mb-3">
+  <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+  </div>
+  <div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
+  <label class="form-check-label" for="rememberMe">Ingatkan saya</label>
+  </div>
+  <div class="text-center">
+  <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Masuk</button>
+  </div>
 </form>
 </div>
 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-<p class="mb-4 text-sm mx-auto">
+<!-- <p class="mb-4 text-sm mx-auto">
 Don't have an account?
 <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
 </p>
@@ -268,7 +267,7 @@ Copyright © <script>
 </div>
 </div>
 </footer>
-
+ -->
 
 <script src="{{('assets/js/core/popper.min.js')}}"></script>
 <script src="{{('assets/js/core/bootstrap.min.js')}}"></script>

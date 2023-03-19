@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pengaduan;
+use App\User;
+use DB;
+use Auth;
 
 class PengaduanController extends Controller
 {
@@ -14,7 +17,26 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        $pengaduan = Pengaduan::all();
+        if (Auth::user()->level == 'admin' || Auth::user()->level == 'petugas') {
+            $pengaduan = DB::table('pengaduan')
+            ->join('users', 'pengaduan.nik', '=', 'users.id')
+            ->select('pengaduan.*','users.nama as nama', 'users.nik as nik', 'pengaduan.nik as id_user')
+            ->orderBy('tgl_pengaduan', 'desc')
+            ->get();
+        } else {
+            $pengaduan = DB::table('pengaduan')
+            ->join('users', 'pengaduan.nik', '=', 'users.id')
+            ->select('pengaduan.*','users.nama as nama', 'users.nik as nik', 'pengaduan.nik as id_user')
+            ->where('users.id', Auth::user()->id)
+            ->orderBy('tgl_pengaduan', 'desc')
+            ->get();
+
+            // dd($pengaduan);
+        }
+        
+
+        // dd($pengaduan);
+
     	return view('pengaduan.index',compact('pengaduan'));
     }
 
@@ -26,7 +48,8 @@ class PengaduanController extends Controller
     public function create()
     {
         $pengaduan = Pengaduan::all();
-    	return view('pengaduan.create',compact('pengaduan'));
+        $user = User::all();
+    	return view('pengaduan.create',compact('pengaduan','user'));
     }
 
     /**

@@ -1,5 +1,5 @@
 @extends('templates.master')
-@section('header', 'Create Tanggapan')
+@section('header', 'Beri Tanggapan')
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -7,7 +7,7 @@
         <div class="card-header pb-0">
             <div class="row">
                 <div class="col-sm-8">
-                    <h6>Create</h6>
+                    <h6>Beri Tanggapan</h6>
                 </div>
                 <div class="col-sm-4">
                     <a href="/tanggapan" class="btn bg-gradient-warning btn-sm float-end" style="margin-right: 25px">Kembali</a>
@@ -15,38 +15,58 @@
             </div>
         </div>
         <div class="card-body px-4 py-4">
-            <form action="/tanggapan/store" method="POST">
-                @csrf
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="example-date-input" class="form-control-label">Tanggal Tanggapan</label>
-                        <input class="form-control" name="tgl_tanggapan" type="date" id="example-date-input">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">Tanggapan</label>
-                        <input type="string" name="tanggapan" class="form-control" id="exampleFormControlInput1">
+            <div class="row mb-4">
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4 m-auto">
+                  <div class="card card-blog card-plain">
+                    <div class="position-relative">
+                      <a class="d-block shadow-xl border-radius-xl">
+                        <img src="{{asset('assets/img/home-decor-1.jpg')}}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                      </a>
                     </div>
                   </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">Tanggal Pengaduan</label>
+                        <input type="string" value="{{ $data->tgl_pengaduan }}" class="form-control" id="exampleFormControlInput1" disabled>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">Nama</label>
+                        <input type="string" value="{{ $data->nama }}" class="form-control" id="exampleFormControlInput1" disabled>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">NIK</label>
+                        <input type="string" value="{{ $data->nik }}" class="form-control" id="exampleFormControlInput1" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Isi Laporan</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{ $data->isi_laporan }}</textarea>
+                  </div>
+                </div>
+            </div>
+            <form action="/tanggapan/store" method="POST">
+                @csrf
+                <input type="hidden" name="id_pengaduan" value="{{$data->id_pengaduan}}">
+                <input type="hidden" name="tgl_tanggapan" value="{{$date}}">
+                <input type="hidden" name="id_user" value="{{$data->id_user}}">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">ID User</label>
-                        <input type="integer" name="id_user" class="form-control" id="exampleFormControlInput1">    
+                        <label for="exampleFormControlTextarea1">Tanggapan</label>
+                        <textarea class="form-control" name="tanggapan" id="exampleFormControlTextarea1" rows="3">{{ $dataTanggapan }}</textarea>
                     </div>
                   </div>
-                {{-- </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Isi Laporan</label>
-                        <textarea class="form-control" name="isi_laporan" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                  </div>
-                </div> --}}
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn bg-gradient-info">Simpan</button>

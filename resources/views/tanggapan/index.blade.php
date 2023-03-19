@@ -10,7 +10,6 @@
                     <h6>Tanggapan Table</h6>
                 </div>
                 <div class="col-sm-4">
-                    <a href="/tanggapan/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
                 </div>
             </div>
         </div>
@@ -19,10 +18,11 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Tanggal Tanggapan</th>
-                  <th>Tanggapan</th>
-                  <th>ID User</th>
+                  <th class="text-center">No</th>
+                  <th class="text-center">Tanggal Tanggapan</th>
+                  <th class="text-center">Laporan</th>
+                  <th class="text-center">Tanggapan</th>
+                  <th class="text-center">User</th>
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
@@ -31,8 +31,9 @@
                     <tr>
                         <td class="text-center">{{ $i+1 }}</td>
                         <td class="text-center">{{ $p->tgl_tanggapan }}</td>
+                        <td class="text-center">{{ $p->laporan }}</td>
                         <td class="text-center">{{ $p->tanggapan }}</td>
-                        <td class="text-center">{{ $p->id_user }}</td>
+                        <td class="text-center">{{ $p->nama }}</td>
                         <td>
                             <a href="/tanggapan/edit/{{ $p->id_tanggapan }}" class="btn bg-gradient-primary">Edit</a>
                             <a href="/tanggapan/delete/{{ $p->id_tanggapan }}" class="btn bg-gradient-warning">Hapus</a>

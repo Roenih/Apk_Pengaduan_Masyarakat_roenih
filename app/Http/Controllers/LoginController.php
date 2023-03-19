@@ -17,7 +17,6 @@ class LoginController extends Controller
             return redirect('/dashboard');
         }
         return redirect('login');
-        
     }
 
     public function registrasi(){
@@ -89,10 +88,11 @@ class LoginController extends Controller
 
         $data_user = new User();
         $data_user->nik = request()->get('nik');
-        $data_user->nama = request()->get('name');
+        $data_user->nama = request()->get('nama');
         $data_user->email = request()->get('email');
         $data_user->password = bcrypt(request()->get('password'));
         $data_user->telp = request()->get('telp');
+        $data_user->level = 'user';
         $data_user->jenkel = request()->get('jenkel');
         $data_user->alamat = request()->get('alamat');
         $data_user->rt = request()->get('rt');
@@ -105,7 +105,13 @@ class LoginController extends Controller
         $data_user->save();
 
         return redirect()->to('/login');
-    
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect('/login');
     }
 
 }

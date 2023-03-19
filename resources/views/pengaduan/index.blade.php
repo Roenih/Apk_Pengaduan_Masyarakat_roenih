@@ -22,6 +22,7 @@
                   <th>No</th>
                   <th>Tanggal Pengaduan</th>
                   <th>NIK</th>
+                  <th>Nama</th>
                   <th>Isi laporan</th>
                   <th>Foto</th>
                   <th>Status</th>
@@ -34,12 +35,16 @@
                         <td class="text-center">{{ $i+1 }}</td>
                         <td class="text-center">{{ $p->tgl_pengaduan }}</td>
                         <td class="text-center">{{ $p->nik }}</td>
+                        <td class="text-center">{{ $p->nama }}</td>
                         <td class="text-center">{{ $p->isi_laporan }}</td>
                         <td class="text-center">{{ $p->foto }}</td>
                         <td class="text-center">{{ $p->status }}</td>
                         <td>
-                            <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn bg-gradient-primary">Edit</a>
-                            <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn bg-gradient-warning ">Hapus</a>
+                            @if (Auth::user()->level != 'user')
+                              <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn bg-gradient-primary">Edit</a>
+                              <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn bg-gradient-warning ">Hapus</a>
+                              <a href="/tanggapan/action/{{ $p->id_pengaduan }}" class="btn bg-gradient-info">Tanggapi</a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

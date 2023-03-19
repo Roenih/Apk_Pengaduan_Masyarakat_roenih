@@ -25,6 +25,8 @@ Route::get('/login', function () {
     return view('pengguna.login');
 });
 
+Route::get('/logout','LoginController@logout');
+
 Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 Route::get('/registrasi', 'LoginController@registrasi')->name('registrasi');
 Route::post('/simpanregistrasi', 'LoginController@simpanregistrasi')->name('simpanregistrasi');
@@ -41,12 +43,15 @@ Route::put('/pengaduan/update/{id}', 'PengaduanController@update');
 Route::get('/pengaduan/delete/{id}', 'PengaduanController@destroy');
 
 
+
 Route::get('/tanggapan', 'TanggapanController@index')->name('tanggapan');
 Route::get('/tanggapan/create', 'TanggapanController@create');
 Route::post('/tanggapan/store', 'TanggapanController@store');
 Route::get('/tanggapan/edit/{id}', 'TanggapanController@edit');
 Route::put('/tanggapan/update/{id}', 'TanggapanController@update');
 Route::get('/tanggapan/delete/{id}', 'TanggapanController@destroy');
+Route::get('/tanggapan/action/{id}', 'TanggapanController@tanggapanAction');
+
 
 // user
 Route::get('/user', 'UserController@index')->name('user');

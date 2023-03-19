@@ -27,7 +27,12 @@
                   <div class="col-md-6">
                     <div class="form-group">
                         <label for="example-text-input" class="form-control-label">NIK</label>
-                        <input type="number" name="nik" class="form-control" id="exampleFormControlInput1">
+                        <select class="form-control" name="nik">
+                            <option>Pilih NIK/Nama</option>
+                             @foreach($user as $i => $p)
+                             <option value="{{ $p->id }}">{{ $p->nama }} - {{ $p->nik }}</option>
+                             @endforeach
+                        </select>
                     </div>
                   </div>
                 </div>

@@ -19,9 +19,5 @@ class Pengaduan extends Model
     {
         return $this->hasMany('App\Tanggapan', 'id_tanggapan');
     }
-
-
-    // coba doang
-    // coba lagi deh
 }
 

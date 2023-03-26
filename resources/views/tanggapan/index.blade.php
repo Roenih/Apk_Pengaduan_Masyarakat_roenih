@@ -23,6 +23,9 @@
                   <th class="text-center">Laporan</th>
                   <th class="text-center">Tanggapan</th>
                   <th class="text-center">User</th>
+                  @if (Auth::user()->level === 'user')
+                    <th class="text-center">Status</th>
+                  @endif
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
@@ -34,9 +37,21 @@
                         <td class="text-center">{{ $p->laporan }}</td>
                         <td class="text-center">{{ $p->tanggapan }}</td>
                         <td class="text-center">{{ $p->nama }}</td>
+                        @if (Auth::user()->level === 'user')
+                          <td class="text-center">{{ $p->status }}</td>
+                        @endif
                         <td>
-                            <a href="/tanggapan/edit/{{ $p->id_tanggapan }}" class="btn bg-gradient-primary">Edit</a>
-                            <a href="/tanggapan/delete/{{ $p->id_tanggapan }}" class="btn bg-gradient-warning">Hapus</a>
+                            @if (Auth::user()->level == 'admin' || Auth::user()->level == 'petugas')
+                              @if (Auth::user()->level == 'admin')
+                                <a href="/tanggapan/edit/{{ $p->id_tanggapan }}" class="btn bg-gradient-primary">Edit</a>
+                                <a href="/tanggapan/delete/{{ $p->id_tanggapan }}" class="btn bg-gradient-warning">Hapus</a>
+                              @endif
+                              @if ($p->status === 'proses')
+                                  <a href="/tanggapan/selesai/{{ $p->id_pengaduan }}" class="btn bg-gradient-secondary" disabled>Proses</a>
+                              @else
+                                  <button class="btn bg-gradient-success" disabled>Selesai</button>
+                              @endif
+                            @endif
                         </td>
                     </tr>
                 @endforeach

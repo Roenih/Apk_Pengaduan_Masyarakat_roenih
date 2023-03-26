@@ -20,22 +20,31 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                        <label for="example-date-input" class="form-control-label">NIK</label>
-                        <input class="form-control" name="nik" type="number" id="example-date-input">
+                        <label for="validationNIK" class="form-control-label">NIK</label>
+                        <input class="form-control" name="nik" type="number" id="validationNIK">
+                        @if ($errors->has('nik'))
+                            <span class="text-danger">{{ $errors->first('nik') }}</span>
+                        @endif
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                         <label for="example-text-input" class="form-control-label">Email</label>
-                          <input class="form-control" name="email" type="email" id="example-date-input">
+                        <input class="form-control" name="email" type="email" id="example-date-input">
+                        @if ($errors->has('email'))
+                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                        @endif
                     </div>
                   </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                          <label for="example-date-input" class="form-control-label">Nama</label>
-                          <input type="text" name="name" class="form-control" id="exampleFormControlInput1">
+                            <label for="example-date-input" class="form-control-label">Nama</label>
+                            <input type="text" name="nama" class="form-control" id="exampleFormControlInput1">
+                            @if ($errors->has('nama'))
+                                <span class="text-danger">{{ $errors->first('nama') }}</span>
+                            @endif
                       </div>
                     </div>
                 </div>
@@ -134,8 +143,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">No Telp</label>
+                                <label for="example-text-input" class="form-control-label">No Telp</label>
                                 <input class="form-control" name="telp" type="number" id="example-date-input">
+                                @if ($errors->has('telp'))
+                                    <span class="text-danger">{{ $errors->first('telp') }}</span>
+                                @endif
                         </div>
                     </div>
                 </div> 

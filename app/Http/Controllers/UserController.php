@@ -9,6 +9,7 @@ use App\Models\Province;
 use App\Models\Regency;
 use App\Models\Village;
 use DB;
+use PDF;
 
 class UserController extends Controller
 {
@@ -26,7 +27,6 @@ class UserController extends Controller
                     ->join('indoregion_villages', 'users.village_id', '=', 'indoregion_villages.id')
                     ->select('users.*', 'indoregion_provinces.name as province_id', 'indoregion_regencies.name as regency_id', 'indoregion_districts.name as district_id', 'indoregion_villages.name as village_id')
                     ->get();
-                    
         // dd($user);
 
     	return view('user.index',compact('user'));
@@ -50,10 +50,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama' => 'required',
+            'email' =>  'required|email|unique:users',
+            'nik' => 'required', 
+            'telp' => 'required', 
+        ]);
+
         $user = [
-            'nama' => $request->name, 
+            'nama' => $request->nama, 
             'email' => $request->email, 
-            'password' => $request->password, 
+            'password' => bcrypt('12345678'), 
             'nik' => $request->nik, 
             'telp' => $request->telp, 
             'jenkel' => $request->jenkel, 
@@ -144,5 +151,21 @@ class UserController extends Controller
         User::where('id',$id)->delete();
 
         return redirect('/user');
+    }
+
+    public function cetakPDF()
+    {
+        // ngambil semua data
+        $user = DB::table('users')
+                    ->join('indoregion_provinces', 'users.province_id', '=', 'indoregion_provinces.id')
+                    ->join('indoregion_regencies', 'users.regency_id', '=', 'indoregion_regencies.id')
+                    ->join('indoregion_districts', 'users.district_id', '=', 'indoregion_districts.id')
+                    ->join('indoregion_villages', 'users.village_id', '=', 'indoregion_villages.id')
+                    ->select('users.*', 'indoregion_provinces.name as province_id', 'indoregion_regencies.name as regency_id', 'indoregion_districts.name as district_id', 'indoregion_villages.name as village_id')
+                    ->get();
+ 
+    	$pdf = PDF::loadview('user.cetakPdf',compact('user'));
+        $pdf->setPaper('A4', 'landscape');
+    	return $pdf->download('laporan-user-pdf.pdf');
     }
 }

@@ -11,6 +11,10 @@
                 </div>
                 <div class="col-sm-4">
                     <a href="/user/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
+                    <a href="/user/cetak-pdf" class="btn btn-icon btn-sm btn-primary">
+                      <span class="btn-inner--icon"><i class="ni ni-book-bookmark"></i></span>
+                      <span class="btn-inner--text">Cetak Laporan</span>
+                    </a>
                 </div>
             </div>
         </div>

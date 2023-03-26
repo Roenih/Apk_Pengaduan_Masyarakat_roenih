@@ -10,7 +10,9 @@
                     <h6>Pengaduan Table</h6>
                 </div>
                 <div class="col-sm-4">
-                    <a href="/pengaduan/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
+                    @if (Auth::user()->level == 'admin')
+                      <a href="/pengaduan/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -25,7 +27,6 @@
                   <th>Nama</th>
                   <th>Isi laporan</th>
                   <th>Foto</th>
-                  <th>Status</th>
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
@@ -38,11 +39,12 @@
                         <td class="text-center">{{ $p->nama }}</td>
                         <td class="text-center">{{ $p->isi_laporan }}</td>
                         <td class="text-center">{{ $p->foto }}</td>
-                        <td class="text-center">{{ $p->status }}</td>
                         <td>
                             @if (Auth::user()->level != 'user')
-                              <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn bg-gradient-primary">Edit</a>
-                              <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn bg-gradient-warning ">Hapus</a>
+                              @if (Auth::user()->level != 'petugas')
+                                <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn bg-gradient-primary">Edit</a>
+                                <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn bg-gradient-warning ">Hapus</a>
+                              @endif
                               <a href="/tanggapan/action/{{ $p->id_pengaduan }}" class="btn bg-gradient-info">Tanggapi</a>
                             @endif
                         </td>

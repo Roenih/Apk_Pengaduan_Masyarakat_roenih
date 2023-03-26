@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Tanggapan;
 use App\Pengaduan;
 use DB;
+use Auth;
 
 class TanggapanController extends Controller
 {
@@ -16,12 +17,20 @@ class TanggapanController extends Controller
      */
     public function index()
     {
-        // $tanggapan = Tanggapan::all();
-        $tanggapan = DB::table('tanggapan')
-                    ->join('pengaduan', 'tanggapan.id_pengaduan', '=', 'pengaduan.id_pengaduan')
-                    ->join('users', 'users.id', '=', 'tanggapan.id_user')
-                    ->select('tanggapan.*','users.nama as nama', 'pengaduan.isi_laporan as laporan')
-                    ->get();
+        if (Auth::user()->level === 'admin' || Auth::user()->level === 'petugas') {
+            $tanggapan = DB::table('tanggapan')
+            ->join('pengaduan', 'tanggapan.id_pengaduan', '=', 'pengaduan.id_pengaduan')
+            ->join('users', 'users.id', '=', 'tanggapan.id_user')
+            ->select('tanggapan.*','users.nama as nama', 'pengaduan.isi_laporan as laporan', 'pengaduan.status as status')
+            ->get();
+        } else {
+            $tanggapan = DB::table('tanggapan')
+            ->join('pengaduan', 'tanggapan.id_pengaduan', '=', 'pengaduan.id_pengaduan')
+            ->join('users', 'users.id', '=', 'tanggapan.id_user')
+            ->select('tanggapan.*','users.nama as nama', 'pengaduan.isi_laporan as laporan', 'pengaduan.status as status')
+            ->where('users.id', Auth::user()->id)
+            ->get();
+        }
         // dd($tanggapan);
 
     	return view('tanggapan.index',compact('tanggapan'));
@@ -145,5 +154,13 @@ class TanggapanController extends Controller
         $dataTanggapan = count($tanggapan) === 1 ? $tanggapan[0]->tanggapan : '';
 
         return view('tanggapan.create',compact('data','date', 'dataTanggapan'));
+    }
+
+    public function statusAction($id)
+    {
+        $pengaduan = Pengaduan::where('id_pengaduan',$id);
+        // dd($pengaduan);
+        $pengaduan->update(['status' => 'selesai']);
+        return redirect('/tanggapan');
     }
 }

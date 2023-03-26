@@ -10,7 +10,7 @@
                     <h6>Pengaduan Table</h6>
                 </div>
                 <div class="col-sm-4">
-                    @if (Auth::user()->level == 'admin')
+                    @if (Auth::user()->level == 'admin' || Auth::user()->level == 'user')
                       <a href="/pengaduan/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
                     @endif
                 </div>
@@ -21,12 +21,14 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Tanggal Pengaduan</th>
-                  <th>NIK</th>
-                  <th>Nama</th>
-                  <th>Isi laporan</th>
-                  <th>Foto</th>
+                  <th class="text-center">No</th>
+                  <th class="text-center">Tanggal Pengaduan</th>
+                  @if (Auth::user()->level != 'user')
+                      <th class="text-center">NIK</th>
+                      <th class="text-center">Nama</th> 
+                  @endif
+                  <th class="text-center">Isi laporan</th>
+                  <th class="text-center">Foto</th>
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
@@ -35,8 +37,10 @@
                     <tr>
                         <td class="text-center">{{ $i+1 }}</td>
                         <td class="text-center">{{ $p->tgl_pengaduan }}</td>
-                        <td class="text-center">{{ $p->nik }}</td>
-                        <td class="text-center">{{ $p->nama }}</td>
+                        @if (Auth::user()->level != 'user')
+                            <td class="text-center">{{ $p->nik }}</td>
+                            <td class="text-center">{{ $p->nama }}</td>
+                        @endif
                         <td class="text-center">{{ $p->isi_laporan }}</td>
                         <td class="text-center">{{ $p->foto }}</td>
                         <td>

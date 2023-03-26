@@ -62,7 +62,7 @@ class PengaduanController extends Controller
     {
         Pengaduan::create([
     		'tgl_pengaduan' => $request->tgl_pengaduan,
-            'nik' => $request->nik,
+            'nik' => Auth::user()->level == "admin" ? $request->nik :  Auth::user()->id,
             'isi_laporan' => $request->isi_laporan,
             'foto' => $request->foto,
             'status' => 'proses',

@@ -17,25 +17,36 @@
         <div class="card-body px-4 py-4">
             <form action="/pengaduan/store" method="POST">
                 @csrf
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="example-date-input" class="form-control-label">Tanggal Pengaduan</label>
-                        <input class="form-control" name="tgl_pengaduan" type="date" id="example-date-input">
+                @if (Auth::user()->level == "admin")
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="example-date-input" class="form-control-label">Tanggal Pengaduan</label>
+                            <input class="form-control" name="tgl_pengaduan" type="date" id="example-date-input">
+                        </div>
+                        </div>
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="example-text-input" class="form-control-label">NIK</label>
+                            <select class="form-control" name="nik">
+                                <option>Pilih NIK/Nama</option>
+                                @foreach($user as $i => $p)
+                                <option value="{{ $p->id }}">{{ $p->nama }} - {{ $p->nik }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        </div>
+                    </div> 
+                @else
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="example-date-input" class="form-control-label">Tanggal Pengaduan</label>
+                            <input class="form-control" name="tgl_pengaduan" type="date" id="example-date-input">
+                        </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">NIK</label>
-                        <select class="form-control" name="nik">
-                            <option>Pilih NIK/Nama</option>
-                             @foreach($user as $i => $p)
-                             <option value="{{ $p->id }}">{{ $p->nama }} - {{ $p->nik }}</option>
-                             @endforeach
-                        </select>
-                    </div>
-                  </div>
-                </div>
+                @endif
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">

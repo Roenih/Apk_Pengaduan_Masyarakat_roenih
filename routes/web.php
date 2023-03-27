@@ -18,12 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/login', function () {
     return view('pengguna.login');
 });
+
 Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 Route::get('/registrasi', 'LoginController@registrasi')->name('registrasi');
 Route::post('/simpanregistrasi', 'LoginController@simpanregistrasi')->name('simpanregistrasi');
@@ -54,6 +55,7 @@ Route::group(['middleware' => ['auth','role:admin,petugas,user']],function(){
     Route::get('/pengaduan/edit/{id}', 'PengaduanController@edit');
     Route::put('/pengaduan/update/{id}', 'PengaduanController@update');
     Route::get('/pengaduan/delete/{id}', 'PengaduanController@destroy');
+    
 
     Route::get('/tanggapan', 'TanggapanController@index')->name('tanggapan');
     Route::get('/tanggapan/create', 'TanggapanController@create');

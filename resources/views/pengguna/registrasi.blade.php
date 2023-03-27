@@ -48,7 +48,7 @@
 
     <link id="pagestyle" href="{{ 'assets/css/soft-ui-dashboard.min.css?v=1.0.7' }}" rel="stylesheet" />
 
-    <style>
+    <!-- <style>
         .async-hide {
             opacity: 0 !important
         }
@@ -109,7 +109,7 @@
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
-    </script>
+    </script> -->
 
 </head>
 
@@ -125,8 +125,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
                         <h1 class="text-white mb-2 mt-5">Selamat datang!</h1>
-                        <p class="text-lead text-white">Use these awesome forms to login or create new account in
-                            your project for free.</p>
+                        <p class="text-lead text-white">Gunakan formulir luar biasa ini untuk masuk atau membuat akun baru di proyek Anda secara gratis</p>
                     </div>
                 </div>
             </div>
@@ -277,7 +276,7 @@
                                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mx-2 mb-2">mendaftar</button>
                               </div>
                               <div class="col-md-12">
-                                <p class="text-sm mt-3 mb-0">Already have an account? <a href="/login" class="text-dark font-weight-bolder">Sign in</a></p>
+                                <p class="text-sm mt-3 mb-0">Sudah memiliki akun? <a href="/login" class="text-dark font-weight-bolder">Sign in</a></p>
                               </div>
                             </div>
                           </div>

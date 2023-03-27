@@ -60,11 +60,14 @@ class PengaduanController extends Controller
      */
     public function store(Request $request)
     {
+        $imgName = $request->foto->getClientOriginalName() . '-' . time() . '.' . $request->foto->extension();
+        $request->foto->move(public_path('image'), $imgName);
+
         Pengaduan::create([
     		'tgl_pengaduan' => $request->tgl_pengaduan,
             'nik' => Auth::user()->level == "admin" ? $request->nik :  Auth::user()->id,
             'isi_laporan' => $request->isi_laporan,
-            'foto' => $request->foto,
+            'foto' => $imgName,
             'status' => 'proses',
     	]);
 

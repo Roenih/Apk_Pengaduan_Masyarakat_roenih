@@ -149,7 +149,7 @@ class TanggapanController extends Controller
         ->get();
         $data = $pengaduan[0];
         $date = date("y-m-d");
-
+        // dd($data);
         $tanggapan = DB::table('tanggapan')->where('id_pengaduan', $data->id_pengaduan)->get();
         $dataTanggapan = count($tanggapan) === 1 ? $tanggapan[0]->tanggapan : '';
 

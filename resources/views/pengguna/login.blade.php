@@ -47,15 +47,15 @@
 
     <link id="pagestyle" href="{{ 'assets/css/soft-ui-dashboard.min.css?v=1.0.7' }}" rel="stylesheet" />
 
-    <style>
+    <!-- <style>
         .async-hide {
             opacity: 0 !important
         }
         .ofBar {
             display: none;
         }
-    </style>
-    <script>
+    </style> -->
+    <!-- <script>
         (function(a, s, y, n, c, h, i, d, e) {
             s.className += ' ' + y;
             h.start = 1 * new Date;
@@ -71,9 +71,9 @@
         })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
             'GTM-K9BGS8K': true
         });
-    </script>
+    </script> -->
 
-    <script>
+    <!-- <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function() {
@@ -93,10 +93,10 @@
         ga('require', 'displayfeatures');
         ga('require', 'linker');
         ga('linker:autoLink', ["2checkout.com", "avangate.com"]);
-    </script>
+    </script> -->
 
 
-    <script>
+    <!-- <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -111,7 +111,7 @@
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
-    </script>
+    </script> -->
 
 </head>
 
@@ -126,7 +126,7 @@
                         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                             <div class="card card-plain mt-8">
                                 <div class="card-header pb-0 text-left bg-transparent">
-                                    <h3 class="font-weight-bolder text-info text-gradient">Selamat Datang Masyarakatku
+                                    <h3 class="font-weight-bolder text-info text-gradient">Layanan Pengaduan masyarakat
                                     </h3>
                                     <p class="mb-0">Masukkan email dan kata sandi Anda untuk masuk</p>
                                 </div>
@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p class="mb-4 text-sm mx-auto">
-                                        Don't have an account?
+                                      Tidak punya akun?
                                         <a href="/registrasi" class="text-info text-gradient font-weight-bold">Sign up</a>
                                     </p>
                                 </div>

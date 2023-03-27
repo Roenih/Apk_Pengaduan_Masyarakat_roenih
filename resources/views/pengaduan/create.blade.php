@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="card-body px-4 py-4">
-            <form action="/pengaduan/store" method="POST">
+            <form action="/pengaduan/store" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (Auth::user()->level == "admin")
                     <div class="row">

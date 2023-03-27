@@ -55,6 +55,8 @@ Route::group(['middleware' => ['auth','role:admin,petugas,user']],function(){
     Route::get('/pengaduan/edit/{id}', 'PengaduanController@edit');
     Route::put('/pengaduan/update/{id}', 'PengaduanController@update');
     Route::get('/pengaduan/delete/{id}', 'PengaduanController@destroy');
+    Route::get('/pengaduan/cetak-pdf', 'PengaduanController@cetakPDF');
+
     
 
     Route::get('/tanggapan', 'TanggapanController@index')->name('tanggapan');

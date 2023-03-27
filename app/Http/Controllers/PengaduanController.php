@@ -7,6 +7,7 @@ use App\Pengaduan;
 use App\User;
 use DB;
 use Auth;
+use PDF;
 
 class PengaduanController extends Controller
 {
@@ -129,5 +130,28 @@ class PengaduanController extends Controller
 
         return redirect('/pengaduan');
     }
+
+    public function CetakPDF()
+    {
+        if (Auth::user()->level == 'admin' || Auth::user()->level == 'petugas') {
+            $pengaduan = DB::table('pengaduan')
+            ->join('users', 'pengaduan.nik', '=', 'users.id')
+            ->select('pengaduan.*','users.nama as nama', 'users.nik as nik', 'pengaduan.nik as id_user')
+            ->orderBy('tgl_pengaduan', 'desc')
+            ->get();
+        } else {
+            $pengaduan = DB::table('pengaduan')
+            ->join('users', 'pengaduan.nik', '=', 'users.id')
+            ->select('pengaduan.*','users.nama as nama', 'users.nik as nik', 'pengaduan.nik as id_user')
+            ->where('users.id', Auth::user()->id)
+            ->orderBy('tgl_pengaduan', 'desc')
+            ->get();
+        }
+
+        $pdf = PDF::loadview('pengaduan.cetakPdf',compact('pengaduan'));
+        $pdf->setPaper('A4', 'landscape');
+    	return $pdf->download('laporan-pengaduan-pdf.pdf');
+
+}
 }
 

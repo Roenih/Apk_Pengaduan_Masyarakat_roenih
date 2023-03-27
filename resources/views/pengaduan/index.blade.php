@@ -12,7 +12,7 @@
                 <div class="col-sm-4">
                     @if (Auth::user()->level == 'admin' || Auth::user()->level == 'user')
                       <a href="/pengaduan/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>
-                      <a href="/pengaduan/pdf" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Unduh laporan</a>
+                      <a href="/pengaduan/cetak-pdf" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Unduh laporan</a>
                     @endif
                 </div>
             </div>

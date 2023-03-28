@@ -21,7 +21,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                         <label for="validationNIK" class="form-control-label">NIK</label>
-                        <input class="form-control" name="nik" type="number" id="validationNIK">
+                        <input class="form-control" name="nik" type="number" id="validationNIK" autocomplete="off">
                         @if ($errors->has('nik'))
                             <span class="text-danger">{{ $errors->first('nik') }}</span>
                         @endif
@@ -30,7 +30,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                         <label for="example-text-input" class="form-control-label">Email</label>
-                        <input class="form-control" name="email" type="email" id="example-date-input">
+                        <input class="form-control" name="email" type="email" id="example-date-input" autocomplete="off">
                         @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
@@ -41,7 +41,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                             <label for="example-date-input" class="form-control-label">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="exampleFormControlInput1">
+                            <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" autocomplete="off">
                             @if ($errors->has('nama'))
                                 <span class="text-danger">{{ $errors->first('nama') }}</span>
                             @endif
@@ -69,7 +69,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Alamat</label>
-                            <input type="text" name="alamat" class="form-control" id="exampleFormControlInput1">
+                            <input type="text" name="alamat" class="form-control" id="exampleFormControlInput1" autocomplete="off">
                         </div>
                     </div>
                 </div> 

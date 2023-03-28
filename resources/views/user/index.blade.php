@@ -8,6 +8,12 @@
             <div class="row">
                 <div class="col-sm-8">
                     <h6>User Table</h6>
+                    @if(session('Data dihapus'))
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>{{session('Data dihapus')}}</strong>
+                    </div>
+                    @endif
+                    
                 </div>
                 <div class="col-sm-4">
                     <a href="/user/create" class="btn bg-gradient-success btn-sm float-end" style="margin-right: 25px">Tambah</a>

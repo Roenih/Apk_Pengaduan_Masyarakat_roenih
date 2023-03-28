@@ -150,7 +150,7 @@ class UserController extends Controller
     {
         User::where('id',$id)->delete();
 
-        return redirect('/user');
+        return redirect('/user')->with('Data dihapus','Data berhasil dihapus!');
     }
 
     public function cetakPDF()

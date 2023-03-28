@@ -163,7 +163,6 @@ class UserController extends Controller
                     ->join('indoregion_villages', 'users.village_id', '=', 'indoregion_villages.id')
                     ->select('users.*', 'indoregion_provinces.name as province_id', 'indoregion_regencies.name as regency_id', 'indoregion_districts.name as district_id', 'indoregion_villages.name as village_id')
                     ->get();
- 
     	$pdf = PDF::loadview('user.cetakPdf',compact('user'));
         $pdf->setPaper('A4', 'landscape');
     	return $pdf->download('laporan-user-pdf.pdf');

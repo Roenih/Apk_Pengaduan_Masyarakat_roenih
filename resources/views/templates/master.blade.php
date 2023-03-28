@@ -73,8 +73,8 @@
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">Logout</span>
-                        </h6>
+                        <a href="/logout" class="dropdown-item" onClick="return confirm('Yakin ingin keluar?')">Log Out</a>
+                      </h6>
                       </div>
                     </div>
                   </a>

@@ -16,7 +16,7 @@ class LoginController extends Controller
         if (Auth::attempt($request->only('email','password'))) {
             return redirect('/dashboard');
         }
-        return redirect('login');
+        return redirect('login')->with('error', 'Email atau Password anda salah !!');
     }
 
     public function registrasi(){

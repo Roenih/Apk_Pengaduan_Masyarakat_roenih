@@ -72,7 +72,7 @@ class PengaduanController extends Controller
             'status' => 'proses',
     	]);
 
-    	return redirect('/pengaduan');
+    	return redirect('/pengaduan')->with('Data ditambah', 'Data berhasil ditambah');
     }
 
     /**
@@ -128,7 +128,7 @@ class PengaduanController extends Controller
     {
         Pengaduan::where('id_pengaduan',$id)->delete();
 
-        return redirect('/pengaduan');
+        return redirect('/pengaduan')->with('Data dihapus','Data berhasil dihapus!');
     }
 
     public function CetakPDF()

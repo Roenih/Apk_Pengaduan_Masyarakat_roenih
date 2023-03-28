@@ -131,13 +131,19 @@
                                     <p class="mb-0">Masukkan email dan kata sandi Anda untuk masuk</p>
                                 </div>
                                 <div class="card-body">
+                                @if($message = Session::get('error'))
+                                <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @endif
                                     <form role="form" action="{{ route('postlogin') }}" method="post">
                                         @csrf
                                         <label>Email</label>
                                         <div class="mb-3">
                                             <input type="email" class="form-control" name="email"
                                                 placeholder="Email" aria-label="Email"
-                                                aria-describedby="email-addon">
+                                                aria-describedby="email-addon"  autocomplete="off">
                                         </div>
                                         <label>Password</label>
                                         <div class="mb-3">

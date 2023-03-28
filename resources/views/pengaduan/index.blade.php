@@ -8,6 +8,17 @@
             <div class="row">
                 <div class="col-sm-8">
                     <h6>Pengaduan Table</h6>
+                    @if(session('Data dihapus'))
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>{{session('Data dihapus')}}</strong>
+                    </div>
+                    @endif
+                    
+                    @if(session('Data ditambah'))
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{{session('Data ditambah')}}</strong>
+                    </div>
+                    @endif
                 </div>
                 <div class="col-sm-4">
                     @if (Auth::user()->level == 'admin' || Auth::user()->level == 'user')
@@ -43,12 +54,12 @@
                             <td class="text-center">{{ $p->nama }}</td>
                         @endif
                         <td class="text-center">{{ $p->isi_laporan }}</td>
-                        <td class="text-center"><img src="{{ asset('image/'. $p->foto ) }}" height="10%" width="20%" alt="Foto Pengaduan"></td>
+                        <td class="text-center"><img src="{{ asset('image/'. $p->foto ) }}" height="20%" width="30%" alt="Foto Pengaduan"></td>
                         <td>
                             @if (Auth::user()->level != 'user')
                               @if (Auth::user()->level != 'petugas')
                                 <a href="/pengaduan/edit/{{ $p->id_pengaduan }}" class="btn bg-gradient-primary">Edit</a>
-                                <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" class="btn bg-gradient-warning ">Hapus</a>
+                                <a href="/pengaduan/delete/{{ $p->id_pengaduan }}" onClick="return confirm('Yakin ingin menghapus data ini?')" class="btn bg-gradient-warning ">Hapus</a>
                               @endif
                               <a href="/tanggapan/action/{{ $p->id_pengaduan }}" class="btn bg-gradient-info">Tanggapi</a>
                             @endif

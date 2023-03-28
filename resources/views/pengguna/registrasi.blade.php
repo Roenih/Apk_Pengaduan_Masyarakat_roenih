@@ -145,14 +145,14 @@
                                   <div class="form-group">
                                       <label for="example-date-input" class="form-control-label">NIK</label>
                                       <input class="form-control" name="nik" type="number"
-                                          id="example-date-input">
+                                          id="example-date-input" autocomplete="off">
                                   </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="example-date-input" class="form-control-label">Nama</label>
                                     <input type="text" name="nama" class="form-control"
-                                        id="exampleFormControlInput1">
+                                        id="exampleFormControlInput1"  autocomplete="off">
                                 </div>
                               </div>
                             </div>
@@ -162,7 +162,7 @@
                                     <label for="example-text-input"
                                         class="form-control-label">Email</label>
                                     <input class="form-control" name="email" type="email"
-                                        id="example-date-input">
+                                        id="example-date-input"  autocomplete="off">
                                 </div>
                               </div>
                               <div class="col-md-6">
@@ -199,7 +199,7 @@
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Alamat</label>
                                         <input type="text" name="alamat" class="form-control"
-                                            id="exampleFormControlInput1">
+                                            id="exampleFormControlInput1"  autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -208,21 +208,21 @@
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">RT</label>
                                         <input type="text" name="rt" class="form-control"
-                                            id="exampleFormControlInput1">
+                                            id="exampleFormControlInput1"  autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-date-input" class="form-control-label">RW</label>
                                         <input type="text" name="rw" class="form-control"
-                                            id="exampleFormControlInput1">
+                                            id="exampleFormControlInput1"  autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Kode Pos</label>
                                         <input type="number" name="kode_pos" class="form-control"
-                                            id="exampleFormControlInput1">
+                                            id="exampleFormControlInput1"  autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -268,7 +268,7 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">No Telp</label>
                                     <input class="form-control" name="telp" type="number"
-                                        id="example-date-input">
+                                        id="example-date-input"  autocomplete="off">
                                 </div>
                             </div>
                             <div class="row">
